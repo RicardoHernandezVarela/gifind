@@ -4,6 +4,7 @@ import './App.css';
 
 /* Importar componentes */
 import SearchForm from './components/SearchForm'
+import GifList from './components/GifList';
 
 class App extends Component {
 
@@ -14,10 +15,10 @@ class App extends Component {
   };
 
   componentDidMount() {
-    this.setState({loading: false});
+    this.realizarBuqueda();
   }
 
-  realizarBuqueda(query = 'naruto') {
+  realizarBuqueda(query = 'minato') {
     fetch(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=dc6zaTOxFJmzC`)
       .then(response => response.json())
       .then(responseData => {
@@ -36,6 +37,9 @@ class App extends Component {
                 <img src={logo} alt="logo" />
             </div>
             <SearchForm realizarBuqueda={this.state.realizarBuqueda}/>
+        </div>
+        <div className="main">
+          <GifList data={this.state.gifs}/>
         </div>
       </div>
     );
