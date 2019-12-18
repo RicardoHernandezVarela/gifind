@@ -111,12 +111,19 @@ MAIN
   transform: scale(1.3);
 } 
 
+.icon-gif {
+  font-size: 6em;
+  margin-bottom: 0;
+  color: #7bcbc4;
+  display: block;
+}
+
 /**************************************
 Ajuste para otros dispositivos
 **************************************/
 @media (min-width: 300px) {
   .header {
-      grid-template-columns: 125px auto;
+      grid-template-columns: repeat(2, minmax(150px, 1fr));
   }
 
   .main {
@@ -125,17 +132,18 @@ Ajuste para otros dispositivos
 
   .buscar {
       grid-column: 2/-1;
-      max-width: 170px;
-      margin-top: -4px;
+      width: 150px;
+      margin-top: -1px;
   }
 
   .logo {
       grid-column: 1/2;
       margin: 14px auto;
+      max-width: 70px;
   }
 
   .logo img {
-      width: 50px;
+      width: 60px;
   }
 }
 
@@ -212,7 +220,7 @@ Ajuste para otros dispositivos
 
 @media (max-height: 400px) {
   .header {
-      grid-template-columns: 160px auto;
+      grid-template-columns: 179px auto;
   }
 
   .main {
@@ -221,7 +229,7 @@ Ajuste para otros dispositivos
 
   .buscar {
       grid-column: 2/-1;
-      width: 263px;
+      max-width: 263px;
       margin-top: -4px;
   }
 

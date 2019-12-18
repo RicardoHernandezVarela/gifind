@@ -2,6 +2,7 @@ import React from 'react';
 
 /* Importar componentes */
 import Gif from './Gif';
+import NoResults from './NoResults';
 
 const GifList = (props) => {
     const data = props.data;
@@ -15,6 +16,8 @@ const GifList = (props) => {
                     key={gif.id} />
             );
         });
+    } else {
+        gifs = <NoResults />
     }
 
     return (
