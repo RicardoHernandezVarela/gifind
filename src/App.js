@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   realizarBuqueda(query = 'minato') {
-    fetch(`http://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=dc6zaTOxFJmzC`)
+    fetch(`https://api.giphy.com/v1/gifs/search?q=${query}&limit=24&api_key=dc6zaTOxFJmzC`)
       .then(response => response.json())
       .then(responseData => {
         this.setState({gifs: responseData.data, loading: false});
