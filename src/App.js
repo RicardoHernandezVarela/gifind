@@ -11,11 +11,21 @@ class App extends Component {
   state = {
     gifs: [],
     loading: true,
-    realizarBuqueda: this.realizarBuqueda.bind(this)
+    textBusqueda: ''
   };
 
   componentDidMount() {
     this.realizarBuqueda();
+  }
+
+  cambiarValorBusqueda = (evt) => {
+    this.setState({textBusqueda: evt.target.value});
+  };
+
+  realizarBusqueda = (evt) => {
+      evt.preventDefault();
+      this.realizarBuqueda(this.state.textBusqueda);
+      evt.currentTarget.reset();
   }
 
   realizarBuqueda(query = 'minato') {
@@ -36,7 +46,10 @@ class App extends Component {
             <div className="logo">
                 <img src={logo} alt="logo" />
             </div>
-            <SearchForm realizarBuqueda={this.state.realizarBuqueda}/>
+            <SearchForm 
+              realizarBusqueda={this.realizarBusqueda}
+              cambiarValorBusqueda={this.cambiarValorBusqueda}
+            />
         </div>
         <div className="main">
           {

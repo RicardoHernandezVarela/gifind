@@ -1,35 +1,20 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class SearchForm extends Component {
+const SearchForm = (props) => {
 
-    state = {
-        textBusqueda: ''
-    }
+    return (
+        <form className="buscar" onSubmit={props.realizarBusqueda}>
+            <input className="buscar-input" 
+                type="text" 
+                placeholder="Buscar gif" 
+                onChange={props.cambiarValorBusqueda}
+            />
+            <button type="submit">
+                <i className="material-icons icon">search</i>
+            </button>
+        </form>
+    );
 
-    cambiarBusqueda = (evt) => {
-        this.setState({textBusqueda: evt.target.value});
-    };
-
-    enviarValorBusqueda = (evt) => {
-        evt.preventDefault();
-        this.props.realizarBuqueda(this.state.textBusqueda);
-        evt.currentTarget.reset();
-    }
-
-    render() {
-        return (
-            <form className="buscar" onSubmit={this.enviarValorBusqueda}>
-                <input className="buscar-input" 
-                    type="text" 
-                    placeholder="Buscar gif" 
-                    onChange={this.cambiarBusqueda}
-                />
-                <button type="submit">
-                    <i className="material-icons icon">search</i>
-                </button>
-            </form>
-        );
-    }
 }
 
 export default SearchForm;
